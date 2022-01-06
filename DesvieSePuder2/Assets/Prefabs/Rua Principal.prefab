@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8865324301577990463}
+  - component: {fileID: -2533722990518185505}
   m_Layer: 0
   m_Name: Rua Principal
   m_TagString: Untagged
@@ -74,6 +75,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!192 &-2533722990518185505
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865324301577990462}
+  serializedVersion: 2
+  m_Size: {x: 1.16, y: 1, z: 58.11}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_IsViewVolume: 1
 --- !u!1001 &52674104
 PrefabInstance:
   m_ObjectHideFlags: 0

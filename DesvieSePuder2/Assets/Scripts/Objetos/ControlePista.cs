@@ -17,6 +17,10 @@ public class ControlePista : MonoBehaviour
         SpawnTile(0);
         SpawnTile(0);
         SpawnTile(0);
+        SpawnTile(0);
+        SpawnTile(0);
+        SpawnTile(0);
+        SpawnTile(0);
     }
 
     void Update()

@@ -321,6 +321,8 @@
 "Assets/Scripts/Carro/CameraController.cs"
 "Assets/Scripts/Carro/CarController.cs"
 "Assets/Scripts/Carro/ControleMovimentacao.cs"
+"Assets/Scripts/EventosGerais/ControlePontos.cs"
+"Assets/Scripts/Inimigos/SpawnInimigos.cs"
 "Assets/Scripts/Objetos/ControlePista.cs"
 -langversion:8.0
 
