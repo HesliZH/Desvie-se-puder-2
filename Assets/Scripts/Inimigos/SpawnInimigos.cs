@@ -16,12 +16,13 @@ public class SpawnInimigos : MonoBehaviour
     private int Direita = 3;
     private int Meio = 0;
     private int LadoSelecionado;
+    private int UltimoLado;
 
     void Start(){
-        for(int i = 0; i <= Inimigos.Length; i++){
+        for(int i = 0; i <= Inimigos.Length - 1; i++){
             Inimigos[i].transform.localScale = new Vector3(50, 50, 50);
+            Inimigos[i].tag = "Inimigo";
         }
-        //StartCoroutine(CarregaInimigos());
     }
     void Update(){
         if(PosicaoPlayer.position.z > zSpawn - (NumeroPistas * Inimigos.Length)){
@@ -31,8 +32,8 @@ public class SpawnInimigos : MonoBehaviour
     }
 
     public void CarregaInimigos(){
-        LadoSelecionado = Random.Range(1, 3);
-
+        LadoSelecionado = Random.Range(1, 5);
+        
         switch(LadoSelecionado){
             case 1: 
                 Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Esquerda, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
@@ -46,5 +47,6 @@ public class SpawnInimigos : MonoBehaviour
         }
 
         zSpawn += QuantidadeEspacos;
+        UltimoLado = LadoSelecionado;
     }
 }
