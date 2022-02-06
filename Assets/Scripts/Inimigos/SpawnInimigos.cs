@@ -33,18 +33,21 @@ public class SpawnInimigos : MonoBehaviour
 
     public void CarregaInimigos(){
         LadoSelecionado = Random.Range(1, 5);
+        GameObject CarroInimigo = new GameObject();
         
         switch(LadoSelecionado){
             case 1: 
-                Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Esquerda, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Esquerda, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
             break;
             case 2: 
-                Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Meio, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Meio, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
             break;
             case 3: 
-                Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Direita, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Direita, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
             break;
         }
+
+        Destroy(CarroInimigo, 9f);
 
         zSpawn += QuantidadeEspacos;
         UltimoLado = LadoSelecionado;
