@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.Pool;
 using UnityEngine.UI.CoroutineTween;
 
 namespace UnityEngine.UI
@@ -191,7 +190,6 @@ namespace UnityEngine.UI
         /// </remarks>
         /// /// <example>
         /// <code>
-        /// <![CDATA[
         /// //Create a new Dropdown GameObject by going to the Hierarchy and clicking __Create__>__UI__>__Dropdown__. Attach this script to the Dropdown GameObject.
         ///
         /// using UnityEngine;
@@ -271,8 +269,7 @@ namespace UnityEngine.UI
         ///         }
         ///     }
         /// }
-        /// ]]>
-        ///</code>
+        /// </code>
         /// </example>
         public List<OptionData> options
         {
@@ -293,8 +290,7 @@ namespace UnityEngine.UI
         /// Use this to detect when a user selects one or more options in the Dropdown. Add a listener to perform an action when this UnityEvent detects a selection by the user. See https://unity3d.com/learn/tutorials/topics/scripting/delegates for more information on delegates.
         /// </remarks>
         /// <example>
-        /// <code>
-        /// <![CDATA[
+        ///  <code>
         /// //Create a new Dropdown GameObject by going to the Hierarchy and clicking Create>UI>Dropdown. Attach this script to the Dropdown GameObject.
         /// //Set your own Text in the Inspector window
         ///
@@ -325,8 +321,7 @@ namespace UnityEngine.UI
         ///         m_Text.text =  "New Value : " + change.value;
         ///     }
         /// }
-        /// ]]>
-        ///</code>
+        /// </code>
         /// </example>
         public DropdownEvent onValueChanged { get { return m_OnValueChanged; } set { m_OnValueChanged = value; } }
 
@@ -343,6 +338,7 @@ namespace UnityEngine.UI
         private List<DropdownItem> m_Items = new List<DropdownItem>();
         private TweenRunner<FloatTween> m_AlphaTweenRunner;
         private bool validTemplate = false;
+        private const int kHighSortingLayer = 30000;
 
         private static OptionData s_NoOptionData = new OptionData();
 
@@ -351,7 +347,6 @@ namespace UnityEngine.UI
         /// </summary>
         /// <example>
         /// <code>
-        /// <![CDATA[
         /// //Create a new Dropdown GameObject by going to the Hierarchy and clicking __Create__>__UI__>__Dropdown__. Attach this script to the Dropdown GameObject.
         /// //Set your own Text in the Inspector window
         ///
@@ -387,8 +382,7 @@ namespace UnityEngine.UI
         ///         m_Text.text = m_Message;
         ///     }
         /// }
-        /// ]]>
-        ///</code>
+        /// </code>
         /// </example>
         public int value
         {
@@ -511,10 +505,8 @@ namespace UnityEngine.UI
         /// Add multiple options to the options of the Dropdown based on a list of OptionData objects.
         /// </summary>
         /// <param name="options">The list of OptionData to add.</param>
-        /// <remarks>
-        /// <![CDATA[
+        /// /// <remarks>
         /// See AddOptions(List<string> options) for code example of usages.
-        /// ]]>
         /// </remarks>
         public void AddOptions(List<OptionData> options)
         {
@@ -531,7 +523,6 @@ namespace UnityEngine.UI
         /// <param name="options">The list of text strings to add.</param>
         /// <example>
         /// <code>
-        /// <![CDATA[
         /// //Create a new Dropdown GameObject by going to the Hierarchy and clicking Create>UI>Dropdown. Attach this script to the Dropdown GameObject.
         ///
         /// using System.Collections.Generic;
@@ -555,8 +546,7 @@ namespace UnityEngine.UI
         ///         m_Dropdown.AddOptions(m_DropOptions);
         ///     }
         /// }
-        /// ]]>
-        ///</code>
+        /// </code>
         /// </example>
         public void AddOptions(List<string> options)
         {
@@ -571,9 +561,7 @@ namespace UnityEngine.UI
         /// </summary>
         /// <param name="options">The list of Sprites to add.</param>
         /// <remarks>
-        /// <![CDATA[
         /// See AddOptions(List<string> options) for code example of usages.
-        /// ]]>
         /// </remarks>
         public void AddOptions(List<Sprite> options)
         {
@@ -593,7 +581,7 @@ namespace UnityEngine.UI
             RefreshShownValue();
         }
 
-        private void SetupTemplate()
+        private void SetupTemplate(Canvas rootCanvas)
         {
             validTemplate = false;
 
@@ -653,9 +641,15 @@ namespace UnityEngine.UI
                 parentTransform = parentTransform.parent;
             }
 
-            Canvas popupCanvas = GetOrAddComponent<Canvas>(templateGo);
-            popupCanvas.overrideSorting = true;
-            popupCanvas.sortingOrder = 30000;
+            // checks if a Canvas already exists before overriding it. (case 958281 - [UI] Child Canvas' Sorting Layer is changed to the same value as the parent)
+            if (!templateGo.TryGetComponent<Canvas>(out _))
+            {
+                Canvas popupCanvas = templateGo.AddComponent<Canvas>();
+                popupCanvas.overrideSorting = true;
+                popupCanvas.sortingOrder = kHighSortingLayer;
+                // popupCanvas used to assume the root canvas had the default sorting Layer, next line fixes (case 958281 - [UI] Dropdown list does not copy the parent canvas layer when the panel is opened)
+                popupCanvas.sortingLayerID = rootCanvas.sortingLayerID;
+            }
 
             // If we have a parent canvas, apply the same raycasters as the parent for consistency.
             if (parentCanvas != null)
@@ -756,15 +750,13 @@ namespace UnityEngine.UI
 
             if (!validTemplate)
             {
-                SetupTemplate();
+                SetupTemplate(rootCanvas);
                 if (!validTemplate)
                     return;
             }
 
             m_Template.gameObject.SetActive(true);
 
-            // popupCanvas used to assume the root canvas had the default sorting Layer, next line fixes (case 958281 - [UI] Dropdown list does not copy the parent canvas layer when the panel is opened)
-            m_Template.GetComponent<Canvas>().sortingLayerID = rootCanvas.sortingLayerID;
 
             // Instantiate the drop-down template
             m_Dropdown = CreateDropdownList(m_Template.gameObject);

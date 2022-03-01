@@ -232,6 +232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carro1
       objectReference: {fileID: 0}
+    - target: {fileID: 3298002321198901718, guid: 1e2ccd48903a6d843bb1b0c46879cfb6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3553049265407297668, guid: 1e2ccd48903a6d843bb1b0c46879cfb6, type: 3}
     - {fileID: 2969777745161178386, guid: 1e2ccd48903a6d843bb1b0c46879cfb6, type: 3}
@@ -307,6 +311,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &632086882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2108487924}
+    m_Modifications:
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153855652159610309, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621876130736458258, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_Name
+      value: Carro2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2621876130736458258, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715614566068290430, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+--- !u!4 &632086883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1728148077489356923, guid: 6dd8c8d874e81d542947a6d24ee65a6b, type: 3}
+  m_PrefabInstance: {fileID: 632086882}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653163836
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +910,7 @@ GameObject:
   - component: {fileID: 2108487924}
   - component: {fileID: 2108487925}
   - component: {fileID: 2108487923}
+  - component: {fileID: 2108487926}
   m_Layer: 0
   m_Name: PlayerCarro
   m_TagString: Untagged
@@ -869,6 +948,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 350183835}
+  - {fileID: 632086883}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -886,3 +966,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocidade: 9
   TamanhoPista: 3
+--- !u!114 &2108487926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108487922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c95594d07dfdf6d4693b67d05d3ab00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CarroSelecionado: 1
+  CarrosDisponiveis: []
+  ControladorCarro: {fileID: 2108487922}
