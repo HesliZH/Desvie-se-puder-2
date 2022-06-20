@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnInimigos : MonoBehaviour
 {
+    [Header("Parametros do Spawn")]
     public GameObject[] Inimigos;
     public GameObject Spawner;
     public GameObject Player;
@@ -34,17 +35,27 @@ public class SpawnInimigos : MonoBehaviour
     public void CarregaInimigos(){
         LadoSelecionado = Random.Range(1, 5);
         GameObject CarroInimigo = new GameObject();
+        var InimigoSelecionado = Random.Range(0, Inimigos.Length);
         
         switch(LadoSelecionado){
             case 1: 
-                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Esquerda, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                CarroInimigo = Instantiate(Inimigos[InimigoSelecionado], new Vector3(Esquerda, Inimigos[InimigoSelecionado].transform.position.y, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                if (CarroInimigo.GetComponent<GatilhosInimigos>().InimigosColidindo) {
+                    Destroy(CarroInimigo);
+                }
             break;
             case 2: 
-                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Meio, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
-            break;
+                CarroInimigo = Instantiate(Inimigos[InimigoSelecionado], new Vector3(Meio, Inimigos[InimigoSelecionado].transform.position.y, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                if (CarroInimigo.GetComponent<GatilhosInimigos>().InimigosColidindo) {
+                    Destroy(CarroInimigo);
+                }
+                break;
             case 3: 
-                CarroInimigo = Instantiate(Inimigos[Random.Range(0, Inimigos.Length)], new Vector3(Direita, 0.66f, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
-            break;
+                CarroInimigo = Instantiate(Inimigos[InimigoSelecionado], new Vector3(Direita, Inimigos[InimigoSelecionado].transform.position.y, Player.transform.position.z + 50), new Quaternion(0, 180, 0, 1));
+                if (CarroInimigo.GetComponent<GatilhosInimigos>().InimigosColidindo) {
+                    Destroy(CarroInimigo);
+                }
+                break;
         }
 
         Destroy(CarroInimigo, 9f);

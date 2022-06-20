@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1728148077489356923}
   - component: {fileID: 2153855652159610309}
   - component: {fileID: 4715614566068290430}
+  - component: {fileID: 8642509257645316122}
+  - component: {fileID: 5966965352198966732}
   m_Layer: 0
   m_Name: Carro2
   m_TagString: Untagged
@@ -65,6 +67,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Velocidade: 0
   TamanhoPista: 4
+--- !u!65 &8642509257645316122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621876130736458258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 1}
+--- !u!114 &5966965352198966732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2621876130736458258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb0a2d56f15974479665e23b79faa8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bateu: 0
 --- !u!1001 &8392499233145022863
 PrefabInstance:
   m_ObjectHideFlags: 0

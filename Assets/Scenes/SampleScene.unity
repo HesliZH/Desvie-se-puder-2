@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Inimigos:
-  - {fileID: 919132149155446097, guid: 339d5a967ff034146803baa8f4cea696, type: 3}
-  - {fileID: 919132149155446097, guid: 38427fd420b6ea34a803d4b4e937cfb3, type: 3}
-  - {fileID: 919132149155446097, guid: 6bcf546fe62543041ba7c05f0f841615, type: 3}
-  - {fileID: 919132149155446097, guid: bf700fbca29f40c47a4be1359d0bd598, type: 3}
+  - {fileID: 9039834498972699928, guid: 4ebac09d756f93e4b8eb25506987f4cb, type: 3}
+  - {fileID: 8957716137683988175, guid: cb819263134b38c4c811639e532fc656, type: 3}
+  - {fileID: 3629695690089107267, guid: 3cd38f9aadbe322409f874ced1df1c92, type: 3}
+  - {fileID: 277896327916532434, guid: e30ce4f0f99a8b54c82605bd2b7a17d4, type: 3}
+  - {fileID: 1274993167092551549, guid: 30d6578cd3d9a734baa50883489cf294, type: 3}
   Spawner: {fileID: 0}
   Player: {fileID: 2108487922}
   PosicaoPlayer: {fileID: 2108487924}
@@ -978,6 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c95594d07dfdf6d4693b67d05d3ab00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarroSelecionado: 1
+  CarroSelecionado: 0
   CarrosDisponiveis: []
   ControladorCarro: {fileID: 2108487922}

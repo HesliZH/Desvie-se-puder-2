@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
+    [Header("Controlador da garagem - será implementado no futuro")]
     public int CarroSelecionado;
     public GameObject[] CarrosDisponiveis;
     public GameObject ControladorCarro;
